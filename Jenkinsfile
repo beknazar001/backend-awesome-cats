@@ -38,12 +38,12 @@ pipeline {
     agent any
 
     environment {
-        ECR_REGISTRY = credentials('648106300517') // Add your ECR credentials ID
+        ECR_REGISTRY = credentials('640022190933') // Add your ECR credentials ID
         IMAGE_NAME = 'backend'
         ECR_REPO = 'backend'          // Replace with your ECR repository name
         AWS_REGION = 'us-east-1'
-        AWS_ACCESS_KEY_ID = credentials('AKIAZNZRFKRS6TAUWHNN') // Add your AWS Access Key ID credentials ID
-        AWS_SECRET_ACCESS_KEY = credentials('qeiGI/S2S7LkG6IIsDYgNsBYKw0PcVGgXpkkB1iG') // Add your AWS Secret Access Key credentials ID
+        AWS_ACCESS_KEY_ID = credentials('AKIAZKBCLTNKYPHYEUBR') // Add your AWS Access Key ID credentials ID
+        AWS_SECRET_ACCESS_KEY = credentials('svO2TRIWnR3uCJpjDnvkEXQX7UVhG3m06YxYFrAV') // Add your AWS Secret Access Key credentials ID
     }
 
     stages {
