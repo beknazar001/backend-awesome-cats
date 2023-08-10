@@ -44,12 +44,14 @@ pipeline {
         AWS_REGION = 'us-east-1'
         AWS_ACCESS_KEY_ID = credentials('AKIAZKBCLTNKYPHYEUBR') // Add your AWS Access Key ID credentials ID
         AWS_SECRET_ACCESS_KEY = credentials('svO2TRIWnR3uCJpjDnvkEXQX7UVhG3m06YxYFrAV') // Add your AWS Secret Access Key credentials ID
+        GITHUB_TOKEN = credentials('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')
     }
 
     stages {
         stage('Build') {
             steps {
                 script {
+                    git credentialsId: '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'
                     docker.withRegistry('https://640022190933.dkr.ecr.us-east-1.amazonaws.com/backend')
                     def dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}", '.')
                     echo 'Docker build completed.'
@@ -63,6 +65,7 @@ pipeline {
                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
                     sh "docker tag ${IMAGE_NAME}:${BUILD_NUMBER} ${ECR_REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}"
                     sh "docker push ${ECR_REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}"
+                    
                 }
             }
         }
