@@ -50,6 +50,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                    docker.withRegistry('640022190933.dkr.ecr.us-east-1.amazonaws.com/backend')
                     def dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}", '.')
                     echo 'Docker build completed.'
                 }
