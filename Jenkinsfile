@@ -38,7 +38,7 @@ pipeline {
     agent any
 
     environment {
-        ECR_REGISTRY = credentials('640022190933') // Add your ECR credentials ID
+        ECR_REGISTRY = credentials('aws_credentials') // Add your ECR credentials ID
         IMAGE_NAME = 'backend'
         ECR_REPO = 'backend'          // Replace with your ECR repository name
         AWS_REGION = 'us-east-1'
