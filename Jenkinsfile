@@ -52,6 +52,7 @@ pipeline {
             steps {
                 script {
                     git credentialsId: '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'
+                    url: 'https://github.com/beknazar001/backend-awesome-cats.git' 
                     docker.withRegistry('https://640022190933.dkr.ecr.us-east-1.amazonaws.com/backend')
                     def dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}", '.')
                     echo 'Docker build completed.'
