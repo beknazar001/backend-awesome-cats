@@ -45,7 +45,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'pwd'
                 sh 'docker build -t $IMAGE_NAME .'
                 echo 'Docker build completed.'
             }
