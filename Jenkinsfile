@@ -45,7 +45,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd ~/backend-awesome-cats'
+                sh 'cd /home/jenkins_home/backend-awesome-cats'
                 sh 'docker build -t $IMAGE_NAME .'
                 echo 'Docker build completed.'
             }
